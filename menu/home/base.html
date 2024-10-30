@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BilalsBxp Web</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Style untuk navbar */
+        .navbar {
+            background-color: rgb(30, 30, 30); /* Warna background gelap */
+        }
+
+        .navbar-brand {
+            color: rgb(255, 165, 0); /* Warna terang pada logo/menu */
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: rgb(255, 215, 0);
+        }
+
+        .nav-link, .dropdown-item {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .dropdown-item:hover {
+            color: rgb(0, 191, 255);
+        }
+
+        /* Animasi geser untuk menu navbar */
+        .navbar-nav {
+            transform: translateX(-100%);
+            animation: slideIn 0.5s forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Style untuk animasi teks bergerak */
+        .moving-text {
+            color: rgb(255, 215, 0); /* Warna terang */
+            font-size: 24px;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .moving-text span {
+            display: inline-block;
+            position: relative;
+            animation: moveText 10s linear infinite;
+        }
+
+        @keyframes moveText {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">BilalsBXP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="Menu Icon" width="30" height="30">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/spam" target="_blank">Spam</a>
+                </li>
+                <li class="nav-item">
+                	<a class="nav-link" href="/doa" target="_blank">Doa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dzikir" target="_blank">Dzikir</a>
+                </li>
+                <!-- Menu Dropdown Follow -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="followDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Follow
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="followDropdown">
+                        <a class="dropdown-item" href="https://www.tiktok.com" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" alt="Tiktok" width="20" height="20">
+                            Tiktok
+                        </a>
+                        <a class="dropdown-item" href="https://www.github.com" target="_blank">
+                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github" width="20" height="20">
+                            Github
+                        </a>
+                    </div>
+                </li>
+                <!-- Menu Dropdown Kontak -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="kontakDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Kontak
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="kontakDropdown">
+                        <a class="dropdown-item" href="mailto:youremail@example.com">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email" width="20" height="20">
+                            Email
+                        </a>
+                        <a class="dropdown-item" href="https://wa.me/1234567890" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Whatsapp" width="20" height="20">
+                            Whatsapp
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Teks bergerak -->
+    <div class="container mt-4 text-center">
+        <div class="moving-text">
+            <span>SELAMAT DATANG DI SITUS WEB BILALSBXP</span>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <h1> WelCome To BilalsBXP Website </h1>
+        <p>Pilih Menu Yang Menarik Di Pojok Kanan Atas</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

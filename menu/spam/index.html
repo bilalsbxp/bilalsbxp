@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirim OTP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Animasi loading */
+        #loading {
+            display: none;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Spam OTP By BilalsBXP</h1>
+    <div class="p" id="p">
+        <p>• Masukkan Nomor Dengan Format Awal 8xx</p>
+        <form id="otpForm" action="/spam/send_otp" method="POST">
+            <label for="phone_number">Nomor</label>
+            <input type="text" id="phone_number" placeholder="8xx" name="phone_number" required>
+            <br><br>
+            <label for="method">Metode</label>
+            <select id="method" name="method">
+                <option value="SMS">SMS</option>
+                <option value="WA">WHATSAPP</option>
+            </select>
+            <br><br>
+            <button type="submit">Kirim OTP</button>
+        </form>
+
+        <p id="loading">Sedang mengirim OTP ke ...</p>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("otpForm").onsubmit = function(event) {
+            event.preventDefault(); // Mencegah pengiriman form biasa
+
+            // Mengambil nomor telepon
+            const nomor = document.getElementById("phone_number").value;
+            // Menampilkan animasi loading dengan nomor
+            const loadingText = document.getElementById("loading");
+            loadingText.textContent = `Sedang mengirim OTP ke 0${nomor}`;
+            loadingText.style.display = "block";
+
+            // Mengirim data form menggunakan Fetch API
+            fetch("/spam/send_otp", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams(new FormData(document.getElementById("otpForm")))
+            })
+            .then(response => response.text())
+            .then(result => {
+                // Menyembunyikan animasi loading
+                loadingText.style.display = "none";
+
+                // Menampilkan hasil pada div result
+                document.getElementById("result").innerHTML = result;
+            })
+            .catch(error => {
+                loadingText.style.display = "none";
+                document.getElementById("result").innerHTML = "Terjadi kesalahan. Coba lagi.";
+                console.error("Error:", error);
+            });
+        };
+    </script>
+</body>
+</html>
